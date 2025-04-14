@@ -2,6 +2,8 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import allure
 import pytest
 
@@ -13,17 +15,19 @@ class TestHootel(object):
         options.add_experimental_option("detach", True)
         options.add_argument("--headless")
         self.browser = webdriver.Chrome(options=options)
+        self.browser.maximize_window()
         self.browser.get(URL)
 
     def teardown_method(self):
-        self.browser.quit()
+        pass#self.browser.quit()
 
     @allure.title("Hootel Login")
     @allure.description("A belépés tesztelése")
     @allure.severity(allure.severity_level.TRIVIAL)
     @allure.tag("login")
     def test_login(self):
-        login_btn = self.browser.find_element(By.XPATH, '//a[@class="nav-link"]')
+        #login_btn = self.browser.find_element(By.XPATH, '//a[@class="nav-link"]')
+        login_btn = WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable((By.XPATH, '//a[@class="nav-link"]')))
         login_btn.click()
 
         email_input = self.browser.find_element(By.ID, 'email')
