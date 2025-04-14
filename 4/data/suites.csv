@@ -1,3 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"A belépés tesztelése","1339","Hootel Login","test","Mon Apr 14 16:56:54 GMT 2025","passed","Mon Apr 14 16:56:55 GMT 2025","TestHootel","test_hootel","",""
-"","1080","test_hotel_list","test","Mon Apr 14 16:56:57 GMT 2025","passed","Mon Apr 14 16:56:58 GMT 2025","TestHootel","test_hootel","",""
